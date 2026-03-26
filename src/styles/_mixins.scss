@@ -1,0 +1,36 @@
+@use "variables" as *;
+
+@mixin glass-surface {
+  background: radial-gradient(circle at top left, #0b1120 0, #020617 40%);
+  border-radius: $radius-lg;
+  border: 1px solid $color-border-subtle;
+  box-shadow: $shadow-soft;
+  backdrop-filter: blur(24px);
+}
+
+@mixin section-padding {
+  padding: 6rem 0 5rem;
+
+  @media (max-width: $bp-md) {
+    padding: 4rem 0 3.5rem;
+  }
+}
+
+@mixin card {
+  border-radius: $radius-md;
+  border: 1px solid $color-border-subtle;
+  background: linear-gradient(
+    145deg,
+    rgba(15, 23, 42, 0.95),
+    rgba(15, 23, 42, 0.8)
+  );
+  box-shadow: $shadow-subtle;
+}
+
+@mixin gradient-text {
+  background: linear-gradient(120deg, $color-accent, $color-highlight);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+

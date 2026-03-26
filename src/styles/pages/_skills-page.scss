@@ -1,0 +1,10 @@
+@use "../variables" as *;
+
+.skills {
+  &__container {
+    display: flex;
+    flex-direction: column;
+    gap: 2.4rem;
+  }
+}
+

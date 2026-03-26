@@ -1,0 +1,20 @@
+@use "../variables" as *;
+
+.projects {
+  &__container {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+  }
+
+  &__header {
+    max-width: 46rem;
+  }
+
+  &__grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+}
+

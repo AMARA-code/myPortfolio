@@ -1,0 +1,44 @@
+@use "../variables" as *;
+
+.btn {
+  border-radius: $radius-pill;
+  padding: 0.8rem 1.4rem;
+  border: 1px solid transparent;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  background: transparent;
+  color: $color-text;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
+  &--primary {
+    background: linear-gradient(120deg, $color-accent, $color-highlight);
+    box-shadow: 0 16px 40px rgba(56, 189, 248, 0.35);
+    border-color: transparent;
+    color: #0b1120;
+  }
+
+  &--secondary {
+    background: rgba(15, 23, 42, 0.9);
+    border-color: $color-border-subtle;
+  }
+
+  &--ghost {
+    background: transparent;
+    border-color: rgba(148, 163, 184, 0.35);
+  }
+}
+

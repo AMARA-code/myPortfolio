@@ -1,0 +1,133 @@
+@use "../variables" as *;
+@use "../mixins" as *;
+
+.home {
+  &__container {
+    display: grid;
+    align-items: center;
+    grid-template-columns: minmax(0, 1.6fr) minmax(0, 1.1fr);
+    gap: 2.8rem;
+
+    @media (max-width: $bp-lg) {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
+  }
+
+  &__hero {
+    max-width: 36rem;
+  }
+
+  &__eyebrow {
+    @include gradient-text;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    margin-bottom: 1rem;
+  }
+
+  &__title {
+    font-size: clamp(2.4rem, 4vw, 3rem);
+    font-weight: 600;
+    line-height: 1.1;
+    margin: 0 0 0.9rem;
+  }
+
+  &__subtitle {
+    margin: 0 0 1.6rem;
+    font-size: 0.98rem;
+    color: $color-text-muted;
+    line-height: 1.8;
+  }
+
+  &__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.9rem;
+    margin-bottom: 1.6rem;
+  }
+
+  &__meta {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.9rem;
+
+    @media (max-width: $bp-md) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__meta-item {
+    padding: 0.75rem 0.9rem;
+    border-radius: 14px;
+    border: 1px solid $color-border-subtle;
+    background: rgba(15, 23, 42, 0.9);
+    font-size: 0.82rem;
+  }
+
+  &__meta-label {
+    display: block;
+    color: $color-text-muted;
+    margin-bottom: 0.15rem;
+  }
+
+  &__meta-value {
+    font-weight: 500;
+  }
+
+  &__visual {
+    position: relative;
+    min-height: 260px;
+    border-radius: $radius-lg;
+    border: 1px solid $color-border-subtle;
+    background: radial-gradient(circle at 0 0, #0f172a, #020617);
+    overflow: hidden;
+  }
+
+  &__orb {
+    position: absolute;
+    border-radius: 999px;
+    filter: blur(18px);
+
+    &--primary {
+      width: 220px;
+      height: 220px;
+      top: -40px;
+      left: -40px;
+      background: radial-gradient(circle at 0 0, $color-accent, transparent);
+      opacity: 0.9;
+    }
+
+    &--accent {
+      width: 200px;
+      height: 200px;
+      bottom: -40px;
+      right: -40px;
+      background: radial-gradient(circle at 100% 100%, $color-highlight, transparent);
+      opacity: 0.9;
+    }
+  }
+
+  &__card {
+    position: absolute;
+    inset: auto 1.1rem 1.1rem 1.1rem;
+    border-radius: 18px;
+    border: 1px solid rgba(148, 163, 184, 0.6);
+    background: rgba(15, 23, 42, 0.92);
+    padding: 1rem 1.1rem;
+    box-shadow: 0 18px 45px rgba(15, 23, 42, 0.9);
+  }
+
+  &__card-title {
+    margin: 0 0 0.4rem;
+    font-size: 0.95rem;
+    font-weight: 500;
+  }
+
+  &__card-text {
+    margin: 0;
+    font-size: 0.8rem;
+    color: $color-text-muted;
+  }
+}
+

@@ -1,0 +1,8 @@
+@use "../variables" as *;
+
+.contact {
+  &__container {
+    align-items: flex-start;
+  }
+}
+
