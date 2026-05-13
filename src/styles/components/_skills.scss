@@ -1,87 +1,464 @@
 @use "../variables" as *;
 
+/* ═══════════════════════════════════════════════════
+   SKILL BAR
+═══════════════════════════════════════════════════ */
 .skill-bar {
+  position: relative;
+
   &__header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 0.25rem;
+    margin-bottom: 0.4rem;
   }
 
   &__label {
-    font-size: 0.85rem;
+    font-size: 0.82rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    color: rgba(226, 232, 240, 0.9);
+    transition: color 0.3s ease;
   }
 
   &__value {
-    font-size: 0.78rem;
-    color: $color-text-muted;
+    font-size: 0.75rem;
+    font-variant-numeric: tabular-nums;
+    font-weight: 600;
+    color: $color-accent;
+    letter-spacing: 0.04em;
   }
 
   &__track {
     width: 100%;
-    height: 0.35rem;
+    height: 4px;
     border-radius: 999px;
-    background: rgba(30, 64, 175, 0.7);
-    overflow: hidden;
+    background: rgba(56, 189, 248, 0.08);
+    overflow: visible;
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: 999px;
+      background: rgba(56, 189, 248, 0.06);
+      box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.4);
+    }
   }
 
   &__fill {
     height: 100%;
     border-radius: 999px;
-    background: linear-gradient(120deg, $color-accent, $color-highlight);
+    background: linear-gradient(90deg, $color-accent, $color-highlight);
+    position: relative;
+    overflow: visible;
+    box-shadow: 0 0 10px rgba(56, 189, 248, 0.45);
+
+    &::after {
+      content: "";
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: $color-highlight;
+      box-shadow:
+        0 0 0 2px rgba(56, 189, 248, 0.3),
+        0 0 12px rgba(56, 189, 248, 0.8);
+    }
+  }
+
+  &__glow {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, transparent 60%, rgba(255, 255, 255, 0.15));
+    border-radius: 999px;
+    animation: shimmer 2.5s infinite;
+  }
+
+  &:hover &__label {
+    color: $color-accent;
   }
 }
 
+@keyframes shimmer {
+  0%   { opacity: 0; transform: translateX(-100%); }
+  50%  { opacity: 1; }
+  100% { opacity: 0; transform: translateX(100%); }
+}
+
+
+/* ═══════════════════════════════════════════════════
+   SKILLS PAGE
+═══════════════════════════════════════════════════ */
 .skills {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+
+  /* ── Grid background overlay ── */
+  &__grid-bg {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    background-image:
+      linear-gradient(rgba(56, 189, 248, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(56, 189, 248, 0.03) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 0%, transparent 100%);
+  }
+
+  /* ── Floating orbs ── */
+  &__orbs {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  &__orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(60px);
+    will-change: transform;
+  }
+
+  /* ── Container ── */
+  &__container {
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ── Eyebrow ── */
+  &__eyebrow {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: $color-accent;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+
+    &::before {
+      content: "";
+      display: inline-block;
+      width: 28px;
+      height: 1px;
+      background: $color-accent;
+      opacity: 0.7;
+    }
+  }
+
+  /* ── Title accent ── */
+  &__title {
+    line-height: 1.18;
+  }
+
+  &__title-accent {
+    background: linear-gradient(120deg, $color-accent, $color-highlight);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    position: relative;
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -2px;
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(90deg, $color-accent, $color-highlight);
+      opacity: 0.4;
+    }
+  }
+
+  /* ── Stats strip ── */
+  &__stats {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin: 2.5rem 0 0;
+    padding: 1.5rem 2rem;
+    border-radius: 16px;
+    border: 1px solid rgba(56, 189, 248, 0.12);
+    background: rgba(15, 23, 42, 0.6);
+    backdrop-filter: blur(12px);
+    flex-wrap: wrap;
+
+    @media (max-width: $bp-md) {
+      gap: 1.2rem;
+      padding: 1.2rem;
+    }
+  }
+
+  &__stats-divider {
+    width: 1px;
+    height: 36px;
+    background: rgba(56, 189, 248, 0.15);
+    flex-shrink: 0;
+
+    @media (max-width: $bp-md) {
+      display: none;
+    }
+  }
+
+  &__stat {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    flex: 1;
+    min-width: 100px;
+    text-align: center;
+  }
+
+  &__stat-value {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    background: linear-gradient(120deg, #e2e8f0, $color-accent);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1;
+  }
+
+  &__stat-label {
+    font-size: 0.7rem;
+    color: $color-text-muted;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  /* ── Ticker ── */
+  &__ticker-wrapper {
+    margin: 2rem -2rem;
+    overflow: hidden;
+    padding: 0.85rem 0;
+    border-top: 1px solid rgba(56, 189, 248, 0.08);
+    border-bottom: 1px solid rgba(56, 189, 248, 0.08);
+    background: rgba(15, 23, 42, 0.5);
+    backdrop-filter: blur(8px);
+    position: relative;
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 80px;
+      z-index: 2;
+      pointer-events: none;
+    }
+    &::before {
+      left: 0;
+      background: linear-gradient(90deg, rgba(8, 14, 32, 0.9), transparent);
+    }
+    &::after {
+      right: 0;
+      background: linear-gradient(-90deg, rgba(8, 14, 32, 0.9), transparent);
+    }
+  }
+
+  &__ticker {
+    display: flex;
+    white-space: nowrap;
+    width: max-content;
+    will-change: transform;
+  }
+
+  &__ticker-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0 1.8rem;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: $color-text-muted;
+  }
+
+  &__ticker-dot {
+    display: inline-block;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: $color-accent;
+    opacity: 0.6;
+    flex-shrink: 0;
+  }
+
+  /* ── Cards grid ── */
   &__grid {
-    margin-top: 2.5rem;
+    margin-top: 2rem;
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 1.5rem;
+    gap: 1.25rem;
+    perspective: 1200px;
 
     @media (max-width: $bp-md) {
       grid-template-columns: 1fr;
     }
   }
 
+  /* ── Card ── */
   &__card {
-    border-radius: 18px;
-    border: 1px solid $color-border-subtle;
-    background: radial-gradient(
-      circle at 0 0,
-      rgba(56, 189, 248, 0.18),
-      rgba(15, 23, 42, 0.98)
-    );
-    padding: 1.5rem 1.5rem 1.6rem;
+    border-radius: 20px;
+    border: 1px solid rgba(56, 189, 248, 0.12);
+    background:
+      radial-gradient(ellipse at 0% 0%, rgba(56, 189, 248, 0.12) 0%, transparent 55%),
+      radial-gradient(ellipse at 100% 100%, rgba(99, 102, 241, 0.08) 0%, transparent 55%),
+      rgba(10, 18, 38, 0.92);
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+    cursor: default;
+    transform-style: preserve-3d;
+    will-change: transform;
+    transition: border-color 0.4s ease, box-shadow 0.4s ease;
 
-    h2 {
-      margin: 0 0 1rem;
-      font-size: 1.05rem;
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: 20px;
+      padding: 1px;
+      background: linear-gradient(135deg, rgba(56, 189, 248, 0.25), transparent 50%, rgba(99, 102, 241, 0.15));
+      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      mask-composite: exclude;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+
+    &:hover {
+      border-color: rgba(56, 189, 248, 0.28);
+      box-shadow:
+        0 0 40px rgba(56, 189, 248, 0.08),
+        0 24px 48px rgba(0, 0, 0, 0.5),
+        inset 0 1px 0 rgba(255, 255, 255, 0.04);
+
+      &::before {
+        opacity: 1;
+      }
+
+      .skills__card-badge {
+        color: $color-accent;
+        border-color: rgba(56, 189, 248, 0.4);
+      }
+    }
+
+    &--wide {
+      grid-column: 1 / -1;
     }
   }
 
+  &__card-inner {
+    padding: 1.75rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Shine sweep on hover */
+  &__card-shine {
+    position: absolute;
+    inset: 0;
+    border-radius: 20px;
+    background: radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(56,189,248,0.06), transparent 40%);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s;
+    z-index: 0;
+  }
+
+  &__card:hover &__card-shine {
+    opacity: 1;
+  }
+
+  /* ── Card badge number ── */
+  &__card-badge {
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    color: $color-text-muted;
+    border: 1px solid rgba(148, 163, 184, 0.2);
+    border-radius: 999px;
+    padding: 0.15rem 0.55rem;
+    display: inline-block;
+    margin-bottom: 1rem;
+    transition: color 0.3s ease, border-color 0.3s ease;
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* ── Card title ── */
+  &__card-title {
+    margin: 0 0 1.25rem;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    color: rgba(226, 232, 240, 0.95);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  &__card-icon {
+    font-size: 0.9rem;
+    color: $color-accent;
+    opacity: 0.8;
+  }
+
+  /* ── Bars ── */
   &__bars {
     display: flex;
     flex-direction: column;
-    gap: 0.75rem;
+    gap: 0.85rem;
   }
 
+  /* ── Tags ── */
   &__tags {
     margin: 0;
     padding: 0;
     list-style: none;
     display: flex;
     flex-wrap: wrap;
-    gap: 0.4rem;
+    gap: 0.45rem;
 
-    li {
-      padding: 0.3rem 0.7rem;
-      border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.55);
-      font-size: 0.78rem;
-      color: $color-text-muted;
-      background: rgba(15, 23, 42, 0.9);
+    &--spread {
+      gap: 0.55rem;
+    }
+  }
+
+  &__tag {
+    padding: 0.35rem 0.85rem;
+    border-radius: 999px;
+    border: 1px solid rgba(148, 163, 184, 0.18);
+    font-size: 0.76rem;
+    font-weight: 500;
+    color: $color-text-muted;
+    background: rgba(15, 23, 42, 0.7);
+    cursor: default;
+    letter-spacing: 0.02em;
+    transition:
+      color 0.25s ease,
+      background 0.25s ease,
+      border-color 0.25s ease,
+      box-shadow 0.25s ease;
+    will-change: transform;
+
+    &:hover {
+      color: rgba(226, 232, 240, 0.95);
+      background: rgba(56, 189, 248, 0.08);
+      border-color: rgba(56, 189, 248, 0.4);
+      box-shadow: 0 0 12px rgba(56, 189, 248, 0.15);
     }
   }
 }
-

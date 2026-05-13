@@ -8,7 +8,7 @@ $color-text-muted: #a1a5c4;
 $color-accent: #6366f1;
 $color-accent-soft: rgba(99, 102, 241, 0.12);
 $color-accent-strong: #4f46e5;
-$color-highlight: #f97316;
+$color-highlight: #6366f1;
 $color-error: #f97373;
 
 $radius-lg: 24px;
@@ -25,6 +25,6 @@ $font-family-base: "Poppins", system-ui, -apple-system, BlinkMacSystemFont,
 $container-width: 1120px;
 $container-padding: 1.5rem;
 
+$bp-sm: 640px;   // ← added
 $bp-md: 768px;
 $bp-lg: 1024px;
-
