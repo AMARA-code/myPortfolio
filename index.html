@@ -3,12 +3,29 @@
   <head>
     <meta charset="UTF-8" />
     <title>Amara Naeem | Full Stack Developer Portfolio</title>
+
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
       content="Premium full stack developer portfolio showcasing modern React, TypeScript, and UI/UX focused web applications."
     />
+
+    <!-- Prevent white flash on mobile (IMPORTANT FIX) -->
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        background-color: #080e20;
+      }
+    </style>
+
+    <!-- Mobile browser theme color -->
+    <meta name="theme-color" content="#080e20" />
+
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -16,9 +33,9 @@
       rel="stylesheet"
     />
   </head>
+
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
-

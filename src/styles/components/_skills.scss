@@ -99,19 +99,6 @@
   overflow: hidden;
   isolation: isolate;
 
-  /* ── Grid background overlay ── */
-  &__grid-bg {
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    z-index: 0;
-    background-image:
-      linear-gradient(rgba(56, 189, 248, 0.03) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(56, 189, 248, 0.03) 1px, transparent 1px);
-    background-size: 60px 60px;
-    mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 0%, transparent 100%);
-  }
-
   /* ── Floating orbs ── */
   &__orbs {
     position: fixed;
