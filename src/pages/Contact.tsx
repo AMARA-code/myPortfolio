@@ -496,7 +496,7 @@ const Contact = () => {
       >
         {[
           { val: "10+",  lbl: "Projects Shipped",   ind: false },
-          { val: "2+",   lbl: "Years Experience",    ind: true  },
+          { val: "3+",   lbl: "Years Experience",    ind: true  },
           { val: "100%", lbl: "Client Satisfaction", ind: false },
           { val: "48h",  lbl: "Avg Response Time",   ind: true  },
           { val: "15+",  lbl: "Technologies",        ind: false },

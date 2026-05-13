@@ -77,7 +77,7 @@ const Orb = ({
 const TICKER_ITEMS = [
   "React.js", "Next.js", "TypeScript", "Node.js", "Tailwind CSS",
   "PostgreSQL", "Supabase", "REST APIs", "Figma", "CSS3 / Sass",
-  "Git & GitHub", "Vite", "Vercel", "Accessibility", "Motion Design",
+  "Git & GitHub", "Vite", "Vercel", "Accessibility", "Motion Design","vite", "netlify","npm / yarn","VS Code","Environment Variables & .env","Responsive Design","Modern Layouts","User-Centered Design","Interactive Components","Animations & Micro-interactions","Design Systems","Problem Solving","Adaptability","Ownership & Initiative","Teamwork & Collaboration","Clear Communication","Creativity"
 ];
 
 const Ticker = () => {
@@ -195,7 +195,7 @@ const Skills = () => {
         >
           <Stat value="3+" label="Years of Experience" delay={0.1} />
           <span className="skills__stats-divider" />
-          <Stat value="20+" label="Technologies Mastered" delay={0.2} />
+          <Stat value="15+" label="Technologies Mastered" delay={0.2} />
           <span className="skills__stats-divider" />
           <Stat value="10+" label="Projects Shipped" delay={0.3} />
           <span className="skills__stats-divider" />

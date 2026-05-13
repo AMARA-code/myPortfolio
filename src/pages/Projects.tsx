@@ -19,6 +19,14 @@ const projects: Project[] = [
       "A full-stack portfolio builder that enables developers to create and publish personalized portfolios using modern templates. It features a guided onboarding flow and one-click publishing to generate a live portfolio URL.",
     technologies: ["Next.js","Node.js","RestAPIs","postgresql","React.js","TypeScript","Sass","Tailwind","Responsive Design"],
   },
+    {
+    title: "Personal Developer Portfolio",
+    liveUrl: "https://my-portfolio-nine-sand-49.vercel.app/",
+    image: "/images/projects/portfolio.png",
+    description:
+      "A premium personal portfolio showcasing modern UI/UX design with smooth animations, 3D effects, and advanced interactive elements. Built with a strong focus on performance, responsiveness, and clean design principles to deliver a polished, production-ready user experience.",
+    technologies: ["Node.js","vite", "React.js","TypeScript","Sass","Tailwind","Responsive Design"],
+  },
   {
     title: "Products-Description-SAAS-Web",
     liveUrl: "https://products-description-saas-web-six.vercel.app",
@@ -147,8 +155,8 @@ const Projects = () => {
             transition={{ duration: 0.6, delay: 0.9 }}
           >
             {[
-              { value: "8+", label: "Live Projects" },
-              { value: "5+", label: "Tech Stacks" },
+              { value: "10+", label: "Live Projects" },
+              { value: "15+", label: "Tech Stacks" },
               { value: "3", label: "SaaS Platforms" },
               { value: "100%", label: "Production Ready" },
             ].map((stat) => (
