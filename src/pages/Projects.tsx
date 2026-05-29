@@ -37,7 +37,7 @@ const projects: Project[] = [
   },
 
   {
-    title: "ECLAT Restaurant Website",
+    title: "ECLAT Restaurant platform",
     liveUrl: "https://restaurant-saas-pi-eight.vercel.app/",
     image: "/images/projects/eclat-restaurant.png",
     description:
@@ -45,11 +45,20 @@ const projects: Project[] = [
     technologies:["Next.js","Node.js","RestAPIs","postgresql","React.js","TypeScript","Sass","Tailwind","Responsive Design"],
   },
     {
-    title: "FreshCart-E-commerce-Website",
+    title: "FreshCart-E-commerce-platform",
     liveUrl: "https://grocery-store-orpin-two.vercel.app/",
     image: "/images/projects/Fresh-cart.png",
     description:
       "FreshCart grocery store is a full-stack  platform — featuring a polished storefront, integrated CRM, and centralized management system, all wrapped in a meticulously crafted UI/UX experience",
+    technologies: ["Next.js","Node.js","RestAPIs","postgresql","React.js","TypeScript","Sass","Tailwind","Responsive Design"],
+  },
+
+      {
+    title: "Eid ul Adha Celebration Platform",
+    liveUrl: "https://eid-ul-azha-bice.vercel.app/",
+    image: "/images/projects/EID-UL-ADHA.png",
+    description:
+      "Eid ul Adha Celebration Platform is a beautifully crafted web experience where users can light virtual lanterns with personal wishes and create & download custom Eid greeting cards — available in English, Urdu, and Arabic.",
     technologies: ["Next.js","Node.js","RestAPIs","postgresql","React.js","TypeScript","Sass","Tailwind","Responsive Design"],
   },
     {
