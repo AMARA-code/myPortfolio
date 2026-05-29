@@ -35,7 +35,24 @@ const projects: Project[] = [
       "A full-stack SaaS platform that generates AI-powered, SEO-optimized product descriptions in seconds. Built with Next.js, Node.js, and Supabase — featuring role-based access control, usage limits, subscription payments via JazzCash & Easypaisa, and a secure admin panel.",
     technologies: ["Next.js","Node.js","RestAPIs","postgresql","React.js","TypeScript","Sass","Tailwind","Responsive Design"],
   },
+
   {
+    title: "ECLAT Restaurant Website",
+    liveUrl: "https://restaurant-saas-pi-eight.vercel.app/",
+    image: "/images/projects/eclat-restaurant.png",
+    description:
+      "A full stack premium restaurant management platform built with Next.js 15, TypeScript, and Supabase — featuring a customer-facing fine dining website with online ordering, table reservations, and a complete admin CMS/CRM dashboard for menu management, revenue tracking, and customer relationships.",
+    technologies:["Next.js","Node.js","RestAPIs","postgresql","React.js","TypeScript","Sass","Tailwind","Responsive Design"],
+  },
+    {
+    title: "FreshCart-E-commerce-Website",
+    liveUrl: "https://grocery-store-orpin-two.vercel.app/",
+    image: "/images/projects/Fresh-cart.png",
+    description:
+      "FreshCart grocery store is a full-stack  platform — featuring a polished storefront, integrated CRM, and centralized management system, all wrapped in a meticulously crafted UI/UX experience",
+    technologies: ["Next.js","Node.js","RestAPIs","postgresql","React.js","TypeScript","Sass","Tailwind","Responsive Design"],
+  },
+    {
     title: "Blossom Beauty Salon Website",
     liveUrl: "https://responsive-beautysalon-website.netlify.app/",
     image: "/images/projects/blossom-beauty-salon.png",
@@ -43,22 +60,7 @@ const projects: Project[] = [
       "A fully responsive and visually elegant salon website focused on premium UI/UX, smooth animations, and engaging service presentation.",
     technologies: ["React.js","TypeScript","Sass","Bootstrap","Responsive Design","Animations"],
   },
-  {
-    title: "ECLAT Restaurant Website",
-    liveUrl: "https://restaurant-website-22.netlify.app/",
-    image: "/images/projects/eclat-restaurant.png",
-    description:
-      "An interactive restaurant platform with elegant UI, animated menu sections, and a highly polished browsing experience.",
-    technologies: ["React.js","TypeScript","Sass","Bootstrap","Interactive Components","Modern Layouts"],
-  },
-  {
-    title: "FreshCart-E-commerce-Website",
-    liveUrl: "https://grocerry-store.netlify.app",
-    image: "/images/projects/Fresh-cart.png",
-    description:
-      "A full-stack e-commerce platform for a grocery store, featuring a modern UI, product filtering, and a seamless shopping experience.",
-    technologies: ["Next.js","Node.js","RestAPIs","postgresql","React.js","TypeScript","Sass","Tailwind","Responsive Design"],
-  },
+
   {
     title: "MCKTIN Software Company Landing Page",
     liveUrl: "https://mcktin-softwarecompany.netlify.app/",
